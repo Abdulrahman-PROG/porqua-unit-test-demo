@@ -20,13 +20,13 @@ class TestPortfolioReturn(unittest.TestCase):
         """Test portfolio return with positive asset returns."""
         weights = [0.5, 0.5]
         returns = [0.1, 0.2]
-        self.assertEqual(calculate_portfolio_return(weights, returns), 0.15)
+        self.assertAlmostEqual(calculate_portfolio_return(weights, returns), 0.15, places=7)
 
     def test_negative_returns(self):
         """Test portfolio return with mixed positive and negative returns."""
         weights = [0.3, 0.7]
         returns = [-0.1, 0.05]
-        self.assertEqual(calculate_portfolio_return(weights, returns), 0.005)
+        self.assertAlmostEqual(calculate_portfolio_return(weights, returns), 0.005, places=7)
 
     def test_invalid_input(self):
         """Test error handling for mismatched weights and returns."""
